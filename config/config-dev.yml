@@ -1,0 +1,20 @@
+app:
+  name: 'aplicacao-estudos-consumer-queue-v2'
+  version: '1.0.0'
+
+http:
+  port: '8080'
+
+logger:
+  log_level: 'info'
+
+sqs:
+  proxy-host: http://localhost:4566/
+  region: 'us-west-2'
+  queues:
+    queue-list: v1,v2
+    prefix: aplicacao-estudos-consumer-queue-
+  receivers: 1
+  max-number-of-messages: 10
+  message-visibility-timeout: 20
+  poll-delay-in-milliseconds: 100
